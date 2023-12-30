@@ -8,8 +8,8 @@ import { useDispatch,useSelector } from "react-redux";
 import { obtainmeteo } from "./redux/actions";
 
 
-const Meteo = () => {
-
+const Meteo = () => 
+{
 const [cityName,setcityName]=useState("")
 const dispatch=useDispatch()
 const meteoFromRedux= useSelector((state)=>
@@ -49,7 +49,7 @@ const meteoFromRedux= useSelector((state)=>
           <Form.Control
             required
             type="text"
-            placeholder="First name"
+            placeholder="cerca località"
             value={cityName}
             onChange={(e) =>
             {

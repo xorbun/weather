@@ -12,7 +12,7 @@ const viewMeteo=(state=initialState, action)=>
         case VIEW_METEO:
             return{
                 ...state,
-                content:[...state.content, action.payload]
+                content:[ action.payload]
             }
             default:return state
     }
