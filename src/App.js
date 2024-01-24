@@ -1,21 +1,30 @@
 
-import { Col, Container, Row } from 'react-bootstrap';
 
-import Home from './components/Home';
+
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import "./App.css";
 import Meteo from './components/Meteo';
-
+import Navbarhome from './components/Navbar';
+import Welcome from "./components/Welcome";
+import Footer from "./components/Myfooter";
 
 
 
 function App() {
   return (
-    <Container >
-      <Row>
-        <Col>
-          <Meteo/>
-        </Col>
-      </Row>
-    </Container>
+    <>
+      <BrowserRouter>
+      <Navbarhome />
+
+      <Routes>
+        <Route path="/home" element={<Welcome/>}/>
+        <Route path="/cerca" element={<Meteo/>}/>
+      </Routes>
+      <Footer/>
+        
+      </BrowserRouter>
+      
+    </>
   )
 }
 

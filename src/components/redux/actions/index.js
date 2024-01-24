@@ -19,10 +19,8 @@
              })
              .then((data) => 
              {
-              
-               console.log(data.list)
-
-               dispatch({
+                console.log(data.list)
+                dispatch({
                 type:VIEW_METEO,
                 payload:data.list,
                })
