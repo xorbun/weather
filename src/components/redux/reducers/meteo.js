@@ -1,8 +1,9 @@
 import { VIEW_METEO } from "../actions";
-
+import {SET_CITY} from "../actions";
 
 const initialState={
     content:[],
+    cityname:"",
 }
 
 const viewMeteo=(state=initialState, action)=>
@@ -12,7 +13,13 @@ const viewMeteo=(state=initialState, action)=>
         case VIEW_METEO:
             return{
                 ...state,
-                content:[ action.payload]
+                content:[ action.payload],
+                
+            }
+        case SET_CITY:
+            return{
+                ...state,
+                cityname:[action.payload]
             }
             default:return state
     }

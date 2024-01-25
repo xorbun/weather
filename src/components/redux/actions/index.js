@@ -1,5 +1,5 @@
  export const VIEW_METEO="VIEW_METEO"
-
+export const SET_CITY="SET_CITY"
 
  export const obtainmeteo=(cityName)=>
  {
@@ -22,7 +22,11 @@
                 console.log(data.list)
                 dispatch({
                 type:VIEW_METEO,
-                payload:data.list,
+                payload:data.list
+               })
+               dispatch({
+                type:SET_CITY,
+                payload:cityName
                })
              })
              .catch((err) => 

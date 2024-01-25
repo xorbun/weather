@@ -9,7 +9,7 @@ import { Youtube } from 'react-bootstrap-icons';
 
 const Footer = () => 
 <Container fluid style={{backgroundImage:"url('https://wallpaperaccess.com/full/4153450.jpg')",backgroundSize:"cover"}}>
-<footer className="page-footer font-small white pt-4 ">
+<footer className="page-footer font-small white pt-4 footerover">
     <div className="container-fluid text-center text-md-left">
         <Row>
             <Col lg={2}>

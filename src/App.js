@@ -3,10 +3,12 @@
 
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
-import Meteo from './components/Meteo';
+
 import Navbarhome from './components/Navbar';
 import Welcome from "./components/Welcome";
 import Footer from "./components/Myfooter";
+import Home from "./components/Home";
+
 
 
 
@@ -18,7 +20,7 @@ function App() {
 
       <Routes>
         <Route path="/home" element={<Welcome/>}/>
-        <Route path="/cerca" element={<Meteo/>}/>
+        <Route path="/cerca" element={<Home/>}/>
       </Routes>
       <Footer/>
         
