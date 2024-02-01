@@ -5,7 +5,8 @@ import {Row} from 'react-bootstrap';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { useDispatch,useSelector } from "react-redux";
-import Home from './Home';
+
+
 import { obtainmeteo } from "./redux/actions";
 const Navbarhome=()=>
 {
@@ -22,7 +23,7 @@ const dispatch=useDispatch()
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link href="/home">Home</Nav.Link>
+            <Nav.Link href="/home2">Home</Nav.Link>
             <Nav.Link href="/cerca">cerca</Nav.Link>
           </Nav>
         </Navbar.Collapse>
