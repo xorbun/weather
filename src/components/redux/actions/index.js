@@ -19,7 +19,6 @@ export const SET_CITY="SET_CITY"
              })
              .then((data) => 
              {
-                console.log(data.list)
                 dispatch({
                 type:VIEW_METEO,
                 payload:data.list

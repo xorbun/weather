@@ -22,7 +22,7 @@ function App() {
       
 
       <Routes>
-        <Route path="/home" element={<Welcome/>}/>
+        <Route path="/" element={<Welcome/>}/>
         <Route path="/cerca" element={<Home2/>}/>
       </Routes>
       <Footer/>
