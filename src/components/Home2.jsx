@@ -1,11 +1,8 @@
 import { Container, Row, Col } from "react-bootstrap";
 import { useSelector } from "react-redux";
-import Button from "react-bootstrap/Button";
-import Card from "@mui/material/Card";
-import CardContent from "@mui/material/CardContent";
-import CardMedia from "@mui/material/CardMedia";
-import Typography from "@mui/material/Typography";
-import { CardActionArea } from "@mui/material";
+
+import { Card } from "react-bootstrap";
+
 import "bootstrap/dist/css/bootstrap.min.css";
 
 const Home2 = () => {
@@ -25,62 +22,59 @@ const Home2 = () => {
     return (
       <Container fluid className="vh-100 colorsite">
         <Row className="mt-5 ">
-          <Col className="">
-            <div className="d-flex justify-content-center">
-              <h1>attualmente</h1>
-            </div>
-            <div className="d-flex justify-content-center">
-              <Card sx={{ maxWidth: 345 }} className="bubble cardbackground">
-                <CardActionArea>
-                  <CardMedia
-                    component="img"
-                    height="140"
-                    image={urlIcon}
-                    alt="meteoIcon"
-                  />
-                </CardActionArea>
-              </Card>
-              <Card
-                sx={{ maxWidth: 345 }}
-                className="bubble d-flex align-items-center mx-2 cardbackground"
-              >
-                <CardActionArea>
-                  <CardContent>
-                    <Typography
-                      variant="body2"
-                      color="text.secondary"
-                      className="fontsize"
-                    >
-                      {meteoFromRedux[0].main.temp}°
-                    </Typography>
-                  </CardContent>
-                </CardActionArea>
-              </Card>
-            </div>
-          </Col>
-        </Row>
-        <Row>
           <Col>
-            <div className="d-flex justify-content-center">
+            <div className="d-flex justify-content-center ">
+              <h2>Condizioni meteo attuali</h2>
+            </div>
+            <div className="d-flex justify-content-center align-items-center mt-5">
               <Card
-                style={{ width: "150px", height: "150px" }}
-                className="bubble d-flex align-items-center cardbackground mx-2"
+                style={{ width: "18rem", height: "15rem" }}
+                className="rounded-5 d-flex "
               >
-                <CardActionArea>
-                  <CardContent>
-                    <Typography
-                      variant="body2"
-                      color="text.secondary"
-                      className="fontsize mx-2"
-                    >
-                      <img src={urlIcon2} alt="nextmeteo" />
-                      <img src={urlIcon3} alt="nextmeteo" />
-                      <img src={urlIcon4} alt="nextmeteo" />
-                      <img src={urlIcon5} alt="nextmeteo" />
-                      <img src={urlIcon6} alt="nextmeteo" />
-                    </Typography>
-                  </CardContent>
-                </CardActionArea>
+                <div className="d-flex justify-content-center ">
+                  <span className="fs-3"> presso: </span>
+                  <span className="fs-3"> {city}</span>
+                </div>
+                <div className="d-flex justify-content-between">
+                  <div className="d-flex flex-column align-items-center">
+                    <Card.Img
+                      variant="top"
+                      style={{ width: "82px" }}
+                      src={urlIcon}
+                    />
+                    <span>{meteoFromRedux[0].weather[0].description}</span>
+                  </div>
+                  <div className="d-flex flex-column justify-content-center align-items-end">
+                    <span>temp: {meteoFromRedux[0].main.temp}</span>
+                    <span>um: {meteoFromRedux[0].main.humidity}</span>
+                  </div>
+                </div>
+              </Card>
+              <Card style={{ width: "18rem" }} className="rounded-5 mx-2">
+                <div className="d-flex justify-content-start">
+                  <span className="fs-3">nelle prossime ore:</span>
+                </div>
+                <div className="d-flex justify-content-between">
+                  <img src={urlIcon2} alt="meteo" />
+                  <span className="my-2">
+                    {meteoFromRedux[1].weather[0].main}
+                  </span>
+                  <span className="my-2">{meteoFromRedux[1].main.temp}</span>
+                </div>
+                <div className="d-flex justify-content-between">
+                  <img src={urlIcon3} alt="meteo" />
+                  <span className="my-2">
+                    {meteoFromRedux[2].weather[0].main}
+                  </span>
+                  <span className="my-2">{meteoFromRedux[2].main.temp}</span>
+                </div>
+                <div className="d-flex justify-content-between">
+                  <img src={urlIcon4} alt="meteo" />
+                  <span className="my-2">
+                    {meteoFromRedux[3].weather[0].main}
+                  </span>
+                  <span className="my-2">{meteoFromRedux[3].main.temp}</span>
+                </div>
               </Card>
             </div>
           </Col>
