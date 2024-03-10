@@ -91,12 +91,21 @@
   font-size: 2em !important;
 }
 .navcolor{
-  background-color: #1976D2;
+  background-color: #1976d23c;
+  
 
 }
 .colorsite{
   background-color: #BBDEFB;
+  
 }
 .cardbackground{
-  background-image: linear-gradient(to right, rgba(255,0,0,0), rgba(127, 202, 211, 0.542));
+  /* From https://css.glass */
+/* From https://css.glass */
+background: rgba(255, 255, 255, 0.42)!important;
+border-radius: 16px !important;
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1) !important;
+backdrop-filter: blur(10.6px) !important;
+-webkit-backdrop-filter: blur(10.6px) !important;
+border: 1px solid rgba(255, 255, 255, 0.3)!important;
 }

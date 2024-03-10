@@ -19,9 +19,34 @@ const Home2 = () => {
     const urlIcon4 = `http://openweathermap.org/img/w/${meteoFromRedux[3].weather[0].icon}.png`;
     const urlIcon5 = `http://openweathermap.org/img/w/${meteoFromRedux[4].weather[0].icon}.png`;
     const urlIcon6 = `http://openweathermap.org/img/w/${meteoFromRedux[5].weather[0].icon}.png`;
+    let meteoWallpaper = "";
+    if (meteoFromRedux[0].weather[0].description === "clear sky") {
+      meteoWallpaper = `assets/pexels-photomix-company-96622.jpg`;
+    } else if (meteoFromRedux[0].weather[0].description === "overcast clouds") {
+      meteoWallpaper = `assets/black-rain-abstract-dark-power.jpg`;
+    } else if (meteoFromRedux[0].weather[0].description === "light rain") {
+      meteoWallpaper = `assets/18166-3840x2160-desktop-4k-rain-background-photo.jpg`;
+    } else if (meteoFromRedux[0].weather[0].description === "few clouds") {
+      meteoWallpaper = `assets/scattered-white-clouds-b19839264934a8d79dd4417668d701ff.jpg`;
+    } else if (meteoFromRedux[0].weather[0].description === "light snow") {
+      meteoWallpaper = `assets/peakpx.jpg`;
+    } else if (meteoFromRedux[0].weather[0].description === "moderate rain") {
+      meteoWallpaper = `assets/18166-3840x2160-desktop-4k-rain-background-photo.jpg`;
+    }else if (meteoFromRedux[0].weather[0].description === "scattered clouds") {
+      meteoWallpaper = `assets/scattered-white-clouds-b19839264934a8d79dd4417668d701ff.jpg`;
+    }else if (meteoFromRedux[0].weather[0].description === "broken clouds") {
+      meteoWallpaper = `assets/black-rain-abstract-dark-power.jpg`;
+    }
     return (
-      <Container fluid className="vh-100 colorsite">
-        <Row className="mt-5 ">
+      <Container
+        fluid
+        className="colorsite "
+        style={{
+          backgroundImage: `url(${meteoWallpaper})`,
+          width: "100%", height: "auto" 
+        }}
+      >
+        <Row className="mt-5 " style={{ height: "50rem" }}>
           <Col>
             <div className="d-flex justify-content-center ">
               <h2>Condizioni meteo attuali</h2>
@@ -29,7 +54,7 @@ const Home2 = () => {
             <div className="d-flex justify-content-center align-items-center mt-5">
               <Card
                 style={{ width: "18rem", height: "15rem" }}
-                className="rounded-5 d-flex "
+                className="rounded-5 d-flex cardbackground"
               >
                 <div className="d-flex justify-content-center ">
                   <span className="fs-3"> presso: </span>
@@ -50,7 +75,10 @@ const Home2 = () => {
                   </div>
                 </div>
               </Card>
-              <Card style={{ width: "18rem" }} className="rounded-5 mx-2">
+              <Card
+                style={{ width: "18rem" }}
+                className="rounded-5 mx-2 cardbackground"
+              >
                 <div className="d-flex justify-content-start">
                   <span className="fs-3">nelle prossime ore:</span>
                 </div>
