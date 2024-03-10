@@ -20,22 +20,42 @@ const Home2 = () => {
     const urlIcon5 = `http://openweathermap.org/img/w/${meteoFromRedux[4].weather[0].icon}.png`;
     const urlIcon6 = `http://openweathermap.org/img/w/${meteoFromRedux[5].weather[0].icon}.png`;
     let meteoWallpaper = "";
-    if (meteoFromRedux[0].weather[0].description === "clear sky") {
+    let meteoIcon = "";
+    let meteoIconArray = [];
+    if (meteoFromRedux[0].weather[0].main === "Clear") {
       meteoWallpaper = `assets/pexels-photomix-company-96622.jpg`;
+      meteoIcon = `assets/SVG/sun.svg`;
     } else if (meteoFromRedux[0].weather[0].description === "overcast clouds") {
       meteoWallpaper = `assets/black-rain-abstract-dark-power.jpg`;
-    } else if (meteoFromRedux[0].weather[0].description === "light rain") {
+      meteoIcon = `assets/SVG/cloud.svg`;
+    } else if (meteoFromRedux[0].weather[0].main === "Rain") {
       meteoWallpaper = `assets/18166-3840x2160-desktop-4k-rain-background-photo.jpg`;
+      meteoIcon = `assets/SVG/rain.svg`;
     } else if (meteoFromRedux[0].weather[0].description === "few clouds") {
       meteoWallpaper = `assets/scattered-white-clouds-b19839264934a8d79dd4417668d701ff.jpg`;
-    } else if (meteoFromRedux[0].weather[0].description === "light snow") {
+      meteoIcon = `assets/SVG/cloud.svg`;
+    } else if (meteoFromRedux[0].weather[0].main === "Snow") {
       meteoWallpaper = `assets/peakpx.jpg`;
-    } else if (meteoFromRedux[0].weather[0].description === "moderate rain") {
-      meteoWallpaper = `assets/18166-3840x2160-desktop-4k-rain-background-photo.jpg`;
-    }else if (meteoFromRedux[0].weather[0].description === "scattered clouds") {
-      meteoWallpaper = `assets/scattered-white-clouds-b19839264934a8d79dd4417668d701ff.jpg`;
-    }else if (meteoFromRedux[0].weather[0].description === "broken clouds") {
+      meteoIcon = `assets/SVG/snow.svg`;
+    } else if (meteoFromRedux[0].weather[0].main === "Clouds") {
       meteoWallpaper = `assets/black-rain-abstract-dark-power.jpg`;
+      meteoIcon = `assets/SVG/cloud.svg`;
+    }
+    let j = 0;
+    for (let i = 1; i < 4; i++) {
+      if (meteoFromRedux[i].weather[0].main === "Clear") {
+        meteoIconArray[j] = `assets/SVG/sun.svg`;
+        j++;
+      } else if (meteoFromRedux[i].weather[0].main === "Rain") {
+        meteoIconArray[j] = `assets/SVG/rain.svg`;
+        j++;
+      } else if (meteoFromRedux[i].weather[0].main === "Snow") {
+        meteoIconArray[j] = `assets/SVG/snow.svg`;
+        j++;
+      } else if (meteoFromRedux[i].weather[0].main === "Clouds") {
+        meteoIconArray[j] = `assets/SVG/cloud.svg`;
+        j++;
+      }
     }
     return (
       <Container
@@ -43,7 +63,8 @@ const Home2 = () => {
         className="colorsite "
         style={{
           backgroundImage: `url(${meteoWallpaper})`,
-          width: "100%", height: "auto" 
+          width: "100%",
+          height: "100%",
         }}
       >
         <Row className="mt-5 " style={{ height: "50rem" }}>
@@ -53,19 +74,19 @@ const Home2 = () => {
             </div>
             <div className="d-flex justify-content-center align-items-center mt-5">
               <Card
-                style={{ width: "18rem", height: "15rem" }}
+                style={{ width: "18rem", height: "230px" }}
                 className="rounded-5 d-flex cardbackground"
               >
                 <div className="d-flex justify-content-center ">
                   <span className="fs-3"> presso: </span>
                   <span className="fs-3"> {city}</span>
                 </div>
-                <div className="d-flex justify-content-between">
+                <div className="d-flex justify-content-between mt-4">
                   <div className="d-flex flex-column align-items-center">
                     <Card.Img
                       variant="top"
                       style={{ width: "82px" }}
-                      src={urlIcon}
+                      src={meteoIcon}
                     />
                     <span>{meteoFromRedux[0].weather[0].description}</span>
                   </div>
@@ -83,23 +104,23 @@ const Home2 = () => {
                   <span className="fs-3">nelle prossime ore:</span>
                 </div>
                 <div className="d-flex justify-content-between">
-                  <img src={urlIcon2} alt="meteo" />
+                  <img src={meteoIconArray[0]} alt="meteo" />
                   <span className="my-2">
-                    {meteoFromRedux[1].weather[0].main}
+                    {meteoFromRedux[1].weather[0].description}
                   </span>
                   <span className="my-2">{meteoFromRedux[1].main.temp}</span>
                 </div>
                 <div className="d-flex justify-content-between">
-                  <img src={urlIcon3} alt="meteo" />
+                  <img src={meteoIconArray[1]} alt="meteo" />
                   <span className="my-2">
-                    {meteoFromRedux[2].weather[0].main}
+                    {meteoFromRedux[2].weather[0].description}
                   </span>
                   <span className="my-2">{meteoFromRedux[2].main.temp}</span>
                 </div>
                 <div className="d-flex justify-content-between">
-                  <img src={urlIcon4} alt="meteo" />
+                  <img src={meteoIconArray[2]} alt="meteo" />
                   <span className="my-2">
-                    {meteoFromRedux[3].weather[0].main}
+                    {meteoFromRedux[3].weather[0].description}
                   </span>
                   <span className="my-2">{meteoFromRedux[3].main.temp}</span>
                 </div>
