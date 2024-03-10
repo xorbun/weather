@@ -53,103 +53,110 @@ const Home2 = () => {
       }
     }
     return (
-      <Container
-        fluid
-        className="colorsite vh-100"
+      <div
+        className="vh-200"
         style={{
           backgroundImage: `url(${meteoWallpaper})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
           width: "100%",
-          height: "100%",
+          height: "200%",
         }}
       >
-        <Row className="mt-5 ">
-          <div className="d-flex justify-content-center ">
-            <h2>Condizioni meteo attuali</h2>
-          </div>
-          <Col>
-            <div className="d-flex justify-content-center align-items-center mt-5">
-              <Row>
-                <Col className="d-flex justify-content-center mb-2">
-                  <Card
-                    style={{ width: "18rem", height: "230px" }}
-                    className="rounded-5 d-flex cardbackground"
-                  >
-                    <div className="d-flex justify-content-center ">
-                      <span className="fs-3"> presso: </span>
-                      <span className="fs-3"> {city}</span>
-                    </div>
-                    <div className="d-flex justify-content-between mt-4">
-                      <div className="d-flex flex-column align-items-center">
-                        <Card.Img
-                          variant="top"
-                          style={{ width: "102px" }}
-                          src={meteoIcon}
+        <Container fluid>
+          <Row className="mt-2 ">
+            <div className="d-flex justify-content-center ">
+              <h2>Condizioni meteo attuali</h2>
+            </div>
+            <Col>
+              <div className="d-flex justify-content-center align-items-center mt-2">
+                <Row>
+                  <Col className="d-flex justify-content-center mb-2">
+                    <Card className="rounded-5 d-flex cardbackground cardsize">
+                      <div className="d-flex justify-content-center ">
+                        <span className="fs-3"> presso: </span>
+                        <span className="fs-3"> {city}</span>
+                      </div>
+                      <div className="d-flex justify-content-between mt-4">
+                        <div className="d-flex flex-column align-items-center">
+                          <Card.Img
+                            variant="top"
+                            style={{ width: "102px" }}
+                            src={meteoIcon}
+                          />
+                          <span>
+                            {meteoFromRedux[0].weather[0].description}
+                          </span>
+                        </div>
+                        <div className="d-flex flex-column justify-content-center align-items-end">
+                          <span>temp: {meteoFromRedux[0].main.temp}</span>
+                          <span>um: {meteoFromRedux[0].main.humidity}</span>
+                        </div>
+                      </div>
+                    </Card>
+                  </Col>
+                  <Col className="d-flex justify-content-center">
+                    <Card className="rounded-5 cardbackground cardsize">
+                      <div className="d-flex justify-content-start mb-2">
+                        <span className="fs-3">nelle prossime ore:</span>
+                      </div>
+                      <div className="d-flex justify-content-between mb-2">
+                        <img
+                          src={meteoIconArray[0]}
+                          width={"45px"}
+                          alt="meteo"
                         />
-                        <span>{meteoFromRedux[0].weather[0].description}</span>
+                        <span className="my-2">
+                          {meteoFromRedux[1].weather[0].description}
+                        </span>
+                        <span className="my-2">
+                          {meteoFromRedux[1].main.temp}
+                        </span>
                       </div>
-                      <div className="d-flex flex-column justify-content-center align-items-end">
-                        <span>temp: {meteoFromRedux[0].main.temp}</span>
-                        <span>um: {meteoFromRedux[0].main.humidity}</span>
+                      <div className="d-flex justify-content-between mb-2">
+                        <img
+                          src={meteoIconArray[1]}
+                          width={"45px"}
+                          alt="meteo"
+                        />
+                        <span className="my-2">
+                          {meteoFromRedux[2].weather[0].description}
+                        </span>
+                        <span className="my-2">
+                          {meteoFromRedux[2].main.temp}
+                        </span>
                       </div>
-                    </div>
-                  </Card>
-                </Col>
-                <Col className="d-flex justify-content-center">
-                  <Card
-                    style={{ width: "18rem", height: "230px" }}
-                    className="rounded-5 cardbackground"
-                  >
-                    <div className="d-flex justify-content-start mb-2">
-                      <span className="fs-4">nelle prossime ore:</span>
-                    </div>
-                    <div className="d-flex justify-content-between mb-2">
-                      <img src={meteoIconArray[0]} width={"45px"} alt="meteo" />
-                      <span className="my-2">
-                        {meteoFromRedux[1].weather[0].description}
-                      </span>
-                      <span className="my-2">
-                        {meteoFromRedux[1].main.temp}
-                      </span>
-                    </div>
-                    <div className="d-flex justify-content-between mb-2">
-                      <img src={meteoIconArray[1]} width={"45px"} alt="meteo" />
-                      <span className="my-2">
-                        {meteoFromRedux[2].weather[0].description}
-                      </span>
-                      <span className="my-2">
-                        {meteoFromRedux[2].main.temp}
-                      </span>
-                    </div>
-                    <div className="d-flex justify-content-between mb-2">
-                      <img src={meteoIconArray[2]} width={"45px"} alt="meteo" />
-                      <span className="my-2">
-                        {meteoFromRedux[3].weather[0].description}
-                      </span>
-                      <span className="my-2">
-                        {meteoFromRedux[3].main.temp}
-                      </span>
-                    </div>
-                  </Card>
-                </Col>
-              </Row>
-            </div>
-          </Col>
-        </Row>
-        <Row>
-          <Col xs={12}>
-            <div className="d-flex justify-content-center">
-              <Card className="mb-5 mt-3 rounded-5 cardbackground graphicsize">
-                <Card.Text>
-                  <h1>Grafico sulla Forza del Vento</h1>
+                      <div className="d-flex justify-content-between mb-2">
+                        <img
+                          src={meteoIconArray[2]}
+                          width={"45px"}
+                          alt="meteo"
+                        />
+                        <span className="my-2">
+                          {meteoFromRedux[3].weather[0].description}
+                        </span>
+                        <span className="my-2">
+                          {meteoFromRedux[3].main.temp}
+                        </span>
+                      </div>
+                    </Card>
+                  </Col>
+                </Row>
+              </div>
+            </Col>
+          </Row>
+          <Row>
+            <Col xs={12}>
+              <div className="d-flex justify-content-center">
+                <Card className="mb-5 mt-3 rounded-5 cardbackground graphicsize">
+                  <h1 className="d-flex justify-content-center">Andamento del vento</h1>
                   <WindCharts />
-                </Card.Text>
-              </Card>
-            </div>
-          </Col>
-        </Row>
-      </Container>
+                </Card>
+              </div>
+            </Col>
+          </Row>
+        </Container>
+      </div>
     );
   }
 };

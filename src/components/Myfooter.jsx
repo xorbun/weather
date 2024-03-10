@@ -8,7 +8,7 @@ import { Twitter } from 'react-bootstrap-icons';
 import { Youtube } from 'react-bootstrap-icons';
 
 const Footer = () => 
-<Container fluid className='navcolor'>
+<Container fluid className='navcolor footer'>
 <footer className="page-footer font-small text-black pt-4 footerover ">
     <div className="container-fluid text-center text-md-left">
         <Row>
