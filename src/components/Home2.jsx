@@ -71,8 +71,8 @@ const Home2 = () => {
             <Col>
               <div className="d-flex justify-content-center align-items-center mt-2">
                 <Row>
-                  <Col className="d-flex justify-content-center mb-2">
-                    <Card className="rounded-5 d-flex cardbackground cardsize">
+                  <Col className="d-flex justify-content-center">
+                    <Card className="rounded-5 d-flex cardbackground cardsize ">
                       <div className="d-flex justify-content-center ">
                         <span className="fs-3"> presso: </span>
                         <span className="fs-3"> {city}</span>
@@ -84,7 +84,7 @@ const Home2 = () => {
                             style={{ width: "102px" }}
                             src={meteoIcon}
                           />
-                          <span>
+                          <span className="mt-2">
                             {meteoFromRedux[0].weather[0].description}
                           </span>
                         </div>
@@ -149,7 +149,9 @@ const Home2 = () => {
             <Col xs={12}>
               <div className="d-flex justify-content-center">
                 <Card className="mb-5 mt-3 rounded-5 cardbackground graphicsize">
-                  <h1 className="d-flex justify-content-center">Andamento del vento</h1>
+                  <h1 className="d-flex justify-content-center">
+                    Andamento del vento
+                  </h1>
                   <WindCharts />
                 </Card>
               </div>
