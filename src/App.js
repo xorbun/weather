@@ -9,6 +9,7 @@ import Welcome from "./components/Welcome";
 import Footer from "./components/Myfooter";
 
 import Home2 from "./components/Home2";
+import WindCharts from "./components/WindChart";
 
 
 
@@ -25,10 +26,10 @@ function App() {
         <Route path="/" element={<Welcome/>}/>
         <Route path="/cerca" element={<Home2/>}/>
       </Routes>
-      <Footer/>
-        
-      </BrowserRouter>
       
+      <Footer/>
+      </BrowserRouter>
+     
     </>
   )
 }

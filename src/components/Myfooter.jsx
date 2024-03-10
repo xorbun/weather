@@ -9,7 +9,7 @@ import { Youtube } from 'react-bootstrap-icons';
 
 const Footer = () => 
 <Container fluid className='navcolor'>
-<footer className="page-footer font-small text-black pt-4 footerover">
+<footer className="page-footer font-small text-black pt-4 footerover ">
     <div className="container-fluid text-center text-md-left">
         <Row>
             <Col lg={2}>
