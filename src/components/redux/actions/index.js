@@ -1,5 +1,13 @@
- export const VIEW_METEO="VIEW_METEO"
-export const SET_CITY="SET_CITY"
+ 
+export const actionType=
+{
+   VIEW_METEO:"VIEW_METEO",
+   SET_CITY:"SET_CITY"
+}
+export const setmeteodata=(data)=>({
+  type:actionType.VIEW_METEO,
+ payload:data
+})
 
  export const obtainmeteo=(cityName)=>
  {
@@ -19,14 +27,11 @@ export const SET_CITY="SET_CITY"
              })
              .then((data) => 
              {
-                dispatch({
-                type:VIEW_METEO,
-                payload:data.list
-               })
-               dispatch({
-                type:SET_CITY,
-                payload:cityName
-               })
+                dispatch(
+                setmeteodata(data),
+                
+               )
+               
              })
              .catch((err) => 
              {

@@ -8,10 +8,10 @@ import WindCharts from "./WindChart";
 
 const Home2 = () => {
   const meteoFromRedux = useSelector((state) => {
-    return state.content[0];
+    return state.content[0].list;
   });
   const city = useSelector((state1) => {
-    return state1.cityname[0];
+    return state1.content[0].city;
   });
   if (meteoFromRedux) {
     let meteoWallpaper = "";
@@ -75,7 +75,7 @@ const Home2 = () => {
                     <Card className="rounded-5 d-flex cardbackground cardsize ">
                       <div className="d-flex justify-content-center ">
                         <span className="fs-3"> presso: </span>
-                        <span className="fs-3"> {city}</span>
+                        <span className="fs-5 mt-2"> {city.name}</span>
                       </div>
                       <div className="d-flex justify-content-between mt-4">
                         <div className="d-flex flex-column align-items-center">

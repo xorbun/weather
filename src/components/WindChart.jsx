@@ -6,7 +6,7 @@ import Chartjs from "chart.js/auto";
 
 const WindCharts = () => {
   const meteoDataFromRedux = useSelector((state) => {
-    return state.content[0];
+    return state.content[0].list;
   });
   if (meteoDataFromRedux) {
     const windData = {

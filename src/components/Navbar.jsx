@@ -12,7 +12,7 @@ const Navbarhome = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const actualmeteo = useSelector((state) => {
-    return state.content[0][0];
+    return state.content[0].list[0];
   });
   let weathericon = "";
   if (actualmeteo.weather[0].main === "Clear") {
@@ -33,6 +33,7 @@ const Navbarhome = () => {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto"></Nav>
+         
           <Nav.Link className="mx-3 ">
             <img
               src={weathericon}
