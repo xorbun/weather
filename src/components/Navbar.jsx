@@ -12,17 +12,19 @@ const Navbarhome = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const actualmeteo = useSelector((state) => {
-    return state.content[0].list[0];
+    return state.content[0];
   });
   let weathericon = "";
-  if (actualmeteo.weather[0].main === "Clear") {
-    weathericon = `assets/SVG/sun.svg`;
-  } else if (actualmeteo.weather[0].main === "Rain") {
-    weathericon = `assets/SVG/rain.svg`;
-  } else if (actualmeteo.weather[0].main === "Snow") {
-    weathericon = `assets/SVG/snow.svg`;
-  } else if (actualmeteo.weather[0].main === "Clouds") {
-    weathericon = `assets/SVG/cloud.svg`;
+  if (actualmeteo) {
+    if (actualmeteo.list[0].weather[0].main === "Clear") {
+      weathericon = `assets/SVG/sun.svg`;
+    } else if (actualmeteo.list[0].weather[0].main === "Rain") {
+      weathericon = `assets/SVG/rain.svg`;
+    } else if (actualmeteo.list[0].weather[0].main === "Snow") {
+      weathericon = `assets/SVG/snow.svg`;
+    } else if (actualmeteo.list[0].weather[0].main === "Clouds") {
+      weathericon = `assets/SVG/cloud.svg`;
+    }
   }
   return (
     <Navbar expand="lg" className="navcolor">
@@ -33,17 +35,22 @@ const Navbarhome = () => {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto"></Nav>
-         
-          <Nav.Link className="mx-3 ">
-            <img
-              src={weathericon}
-              onClick={() => navigate("/cerca")}
-              alt="weathericon"
-            />
-          </Nav.Link>
-          <Nav.Link onClick={() => navigate("/cerca")} className="mx-2">
-            {actualmeteo.main.temp}°
-          </Nav.Link>
+          {actualmeteo ? (
+            <div className="d-flex flex-column align-items-center">
+              <Nav.Link className="mx-3 ">
+                <img
+                  src={weathericon}
+                  onClick={() => navigate("/cerca")}
+                  alt="weathericon"
+                />
+              </Nav.Link>
+              <Nav.Link onClick={() => navigate("/cerca")} className="mx-2">
+                {actualmeteo.list[0].main.temp}°
+              </Nav.Link>
+            </div>
+          ) : (
+            ""
+          )}
         </Navbar.Collapse>
 
         <Form

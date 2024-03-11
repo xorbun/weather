@@ -8,46 +8,46 @@ import WindCharts from "./WindChart";
 
 const Home2 = () => {
   const meteoFromRedux = useSelector((state) => {
-    return state.content[0].list;
+    return state.content[0];
   });
   const city = useSelector((state1) => {
-    return state1.content[0].city;
+    return state1.content[0];
   });
   if (meteoFromRedux) {
     let meteoWallpaper = "";
     let meteoIcon = "";
     let meteoIconArray = [];
-    if (meteoFromRedux[0].weather[0].main === "Clear") {
+    if (meteoFromRedux.list[0].weather[0].main === "Clear") {
       meteoWallpaper = `assets/pexels-photomix-company-96622.jpg`;
       meteoIcon = `assets/SVG/sun.svg`;
-    } else if (meteoFromRedux[0].weather[0].description === "overcast clouds") {
+    } else if (meteoFromRedux.list[0].weather[0].description === "overcast clouds") {
       meteoWallpaper = `assets/black-rain-abstract-dark-power.jpg`;
       meteoIcon = `assets/SVG/cloud.svg`;
-    } else if (meteoFromRedux[0].weather[0].main === "Rain") {
+    } else if (meteoFromRedux.list[0].weather[0].main === "Rain") {
       meteoWallpaper = `assets/18166-3840x2160-desktop-4k-rain-background-photo.jpg`;
       meteoIcon = `assets/SVG/rain.svg`;
-    } else if (meteoFromRedux[0].weather[0].description === "few clouds") {
+    } else if (meteoFromRedux.list[0].weather[0].description === "few clouds") {
       meteoWallpaper = `assets/scattered-white-clouds-b19839264934a8d79dd4417668d701ff.jpg`;
       meteoIcon = `assets/SVG/cloud.svg`;
-    } else if (meteoFromRedux[0].weather[0].main === "Snow") {
+    } else if (meteoFromRedux.list[0].weather[0].main === "Snow") {
       meteoWallpaper = `assets/peakpx.jpg`;
       meteoIcon = `assets/SVG/snow.svg`;
-    } else if (meteoFromRedux[0].weather[0].main === "Clouds") {
+    } else if (meteoFromRedux.list[0].weather[0].main === "Clouds") {
       meteoWallpaper = `assets/black-rain-abstract-dark-power.jpg`;
       meteoIcon = `assets/SVG/cloud.svg`;
     }
     let j = 0;
     for (let i = 1; i < 4; i++) {
-      if (meteoFromRedux[i].weather[0].main === "Clear") {
+      if (meteoFromRedux.list[i].weather[0].main === "Clear") {
         meteoIconArray[j] = `assets/SVG/sun.svg`;
         j++;
-      } else if (meteoFromRedux[i].weather[0].main === "Rain") {
+      } else if (meteoFromRedux.list[i].weather[0].main === "Rain") {
         meteoIconArray[j] = `assets/SVG/rain.svg`;
         j++;
-      } else if (meteoFromRedux[i].weather[0].main === "Snow") {
+      } else if (meteoFromRedux.list[i].weather[0].main === "Snow") {
         meteoIconArray[j] = `assets/SVG/snow.svg`;
         j++;
-      } else if (meteoFromRedux[i].weather[0].main === "Clouds") {
+      } else if (meteoFromRedux.list[i].weather[0].main === "Clouds") {
         meteoIconArray[j] = `assets/SVG/cloud.svg`;
         j++;
       }
@@ -75,7 +75,7 @@ const Home2 = () => {
                     <Card className="rounded-5 d-flex cardbackground cardsize ">
                       <div className="d-flex justify-content-center ">
                         <span className="fs-3"> presso: </span>
-                        <span className="fs-5 mt-2"> {city.name}</span>
+                        <span className="fs-5 mt-2"> {city.city.name}</span>
                       </div>
                       <div className="d-flex justify-content-between mt-4">
                         <div className="d-flex flex-column align-items-center">
@@ -85,12 +85,12 @@ const Home2 = () => {
                             src={meteoIcon}
                           />
                           <span className="mt-2">
-                            {meteoFromRedux[0].weather[0].description}
+                            {meteoFromRedux.list[0].weather[0].description}
                           </span>
                         </div>
                         <div className="d-flex flex-column justify-content-center align-items-end">
-                          <span>temp: {meteoFromRedux[0].main.temp}</span>
-                          <span>um: {meteoFromRedux[0].main.humidity}</span>
+                          <span>temp: {meteoFromRedux.list[0].main.temp}</span>
+                          <span>um: {meteoFromRedux.list[0].main.humidity}</span>
                         </div>
                       </div>
                     </Card>
@@ -107,10 +107,10 @@ const Home2 = () => {
                           alt="meteo"
                         />
                         <span className="my-2">
-                          {meteoFromRedux[1].weather[0].description}
+                          {meteoFromRedux.list[1].weather[0].description}
                         </span>
                         <span className="my-2">
-                          {meteoFromRedux[1].main.temp}
+                          {meteoFromRedux.list[1].main.temp}
                         </span>
                       </div>
                       <div className="d-flex justify-content-between mb-2">
@@ -120,10 +120,10 @@ const Home2 = () => {
                           alt="meteo"
                         />
                         <span className="my-2">
-                          {meteoFromRedux[2].weather[0].description}
+                          {meteoFromRedux.list[2].weather[0].description}
                         </span>
                         <span className="my-2">
-                          {meteoFromRedux[2].main.temp}
+                          {meteoFromRedux.list[2].main.temp}
                         </span>
                       </div>
                       <div className="d-flex justify-content-between mb-2">
@@ -133,10 +133,10 @@ const Home2 = () => {
                           alt="meteo"
                         />
                         <span className="my-2">
-                          {meteoFromRedux[3].weather[0].description}
+                          {meteoFromRedux.list[3].weather[0].description}
                         </span>
                         <span className="my-2">
-                          {meteoFromRedux[3].main.temp}
+                          {meteoFromRedux.list[3].main.temp}
                         </span>
                       </div>
                     </Card>
