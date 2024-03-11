@@ -1,20 +1,25 @@
-import { Card } from "react-bootstrap";
+import { Button, Card } from "react-bootstrap";
 
 const SingleNews = (props) => {
   return (
     <Card className="cardbackground rounded-5" style={{ width: "58rem" }}>
       <div className="newsettingintocard">
         <div>
-          <Card.Img
-            variant="top"
-            src={props.news.urlToImage}
-            style={{ width: "300px" }}
-          />
+          <Card.Img src={props.news.urlToImage} style={{ width: "200px" }} />
         </div>
         <div>
           <Card.Body>
-            <Card.Title className=" ">{props.news.title}</Card.Title>
-            <Card.Text className="">{props.news.description}</Card.Text>
+            <div>
+              <Card.Title className="truncatetitle">
+                {props.news.title}
+              </Card.Title>
+              <Card.Text className="truncate">
+                {props.news.description}
+              </Card.Text>
+            </div>
+            <div className="mt-5">
+              <Button>Read more</Button>
+            </div>
           </Card.Body>
         </div>
       </div>

@@ -157,7 +157,7 @@ const Home2 = () => {
               <div className="d-flex justify-content-center">
                 <Card className="mb-5 mt-3 rounded-5 cardbackground graphicsize text-light">
                   <span className="d-flex justify-content-center fs-3">
-                    Andamento del vento
+                    Wind's trend
                   </span>
                   <WindCharts />
                 </Card>
