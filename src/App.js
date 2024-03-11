@@ -10,6 +10,7 @@ import Footer from "./components/Myfooter";
 
 import Home2 from "./components/Home2";
 import WindCharts from "./components/WindChart";
+import Backofficefetch from "./components/Backoffice";
 
 
 
@@ -20,7 +21,7 @@ function App() {
     <>
       <BrowserRouter>
       <Navbarhome />
-      
+      <Backofficefetch/>
 
       <Routes>
         <Route path="/" element={<Welcome/>}/>

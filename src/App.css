@@ -116,6 +116,17 @@ border: 1px solid rgba(255, 255, 255, 0.3)!important;
   width: 290px; 
   height: 230px 
 }
+
+
+.truncate {
+  width: 450px;
+  white-space: nowrap;
+  overflow:hidden;
+  text-overflow: ellipsis;
+}
+.newsettingintocard{
+  display: flex;
+}
 @media (max-width: 800px) {
   .graphicsize{
     width: 100%;
@@ -124,5 +135,9 @@ border: 1px solid rgba(255, 255, 255, 0.3)!important;
     width: 100%;
     margin-bottom: 20px;
   }
+  .newsettingintocard{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 }
-

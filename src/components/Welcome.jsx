@@ -1,17 +1,47 @@
-import { Container,Row,Col } from "react-bootstrap";
+import { Container, Row, Col, Card } from "react-bootstrap";
+import { useSelector } from "react-redux";
+import SingleNews from "./Singlenews";
 
+const Welcome = () => {
+  const news = useSelector((state) => {
+    return state.news.content[0].articles;
+  });
+  const numberOfArticles = "10";
+  const newsToWatch = news.slice(0, numberOfArticles);
 
-const Welcome=()=>
-{
-    return(
-        <Container fluid className="colorsite">
-            <Row>
-                <Col>
-                    <h1 className="vh-100 text-center text-body-emphasis">welcome, clicca su cerca per iniziare</h1>
-                </Col>
-            </Row>
-        </Container>
-        
-    )
-}
+  return (
+    <div className="colorsite">
+      <Container fluid className=" vh-200">
+        <h1>Today's news</h1>
+        <Row className="mt-4">
+          <Col className="d-flex justify-content-center mb-4">
+            <Card
+              className="cardbackground rounded-5"
+              style={{ width: "58rem" }}
+            >
+              <Card.Img variant="top" src={news[11].urlToImage} />
+              <Card.Body>
+                <Card.Title>{news[11].title}</Card.Title>
+                <Card.Text>{news[11].description}</Card.Text>
+              </Card.Body>
+            </Card>
+          </Col>
+        </Row>
+        <Row>
+          {newsToWatch.map((info) => {
+            return (
+              <Col
+                lg={6}
+                className="d-flex justify-content-center mb-4"
+                key={info.url}
+              >
+                <SingleNews news={info} />
+              </Col>
+            );
+          })}
+        </Row>
+      </Container>
+    </div>
+  );
+};
 export default Welcome;

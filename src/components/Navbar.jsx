@@ -4,7 +4,7 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import { useDispatch, useSelector } from "react-redux";
-import { obtainmeteo } from "./redux/actions";
+import { obtainews, obtainmeteo } from "./redux/actions";
 import { useNavigate } from "react-router-dom";
 
 const Navbarhome = () => {
@@ -12,8 +12,9 @@ const Navbarhome = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const actualmeteo = useSelector((state) => {
-    return state.content[0];
+    return state.meteo.content[0];
   });
+
   let weathericon = "";
   if (actualmeteo) {
     if (actualmeteo.list[0].weather[0].main === "Clear") {
@@ -29,12 +30,15 @@ const Navbarhome = () => {
   return (
     <Navbar expand="lg" className="navcolor">
       <Container fluid>
-        <Navbar.Brand onClick={() => navigate("/")}>
-          My weather Channel
-        </Navbar.Brand>
+        <Navbar.Brand>My weather Channel</Navbar.Brand>
+
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="me-auto"></Nav>
+          <Nav className="me-auto">
+            <Nav.Link onClick={() => navigate("/")}>
+              <span>home</span>
+            </Nav.Link>
+          </Nav>
           {actualmeteo ? (
             <div className="d-flex flex-column align-items-center">
               <Nav.Link className="mx-3 ">
@@ -65,7 +69,7 @@ const Navbarhome = () => {
             className="mb-2 mt-3 "
             required
             type="text"
-            placeholder="cerca località"
+            placeholder="what's the weather in.."
             value={cityName}
             onChange={(e) => {
               e.preventDefault();

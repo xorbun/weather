@@ -1,4 +1,4 @@
-import { configureStore } from "@reduxjs/toolkit";
+import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import viewMeteo from "../reducers/meteo";
 import { persistStore, persistReducer, FLUSH,
     REHYDRATE,
@@ -7,13 +7,18 @@ import { persistStore, persistReducer, FLUSH,
     PURGE,
     REGISTER, } from 'redux-persist';
   import storage from 'redux-persist/lib/storage'; 
+import viewNews from "../reducers/news";
 
   const persistConfig = {
     key: 'root',
     storage,
   
   };
-  const persistedReducer = persistReducer(persistConfig,viewMeteo );  
+  const bigReducer=combineReducers({
+    meteo:viewMeteo,
+    news:viewNews
+  })
+  const persistedReducer = persistReducer(persistConfig,bigReducer );  
 
 const store = configureStore({
     reducer: persistedReducer,

@@ -2,12 +2,17 @@
 export const actionType=
 {
    VIEW_METEO:"VIEW_METEO",
-   SET_CITY:"SET_CITY"
+   VIEW_NEWS:"VIEW_NEWS"
 }
 export const setmeteodata=(data)=>({
   type:actionType.VIEW_METEO,
  payload:data
 })
+export const setnews=(data)=>({
+  type:actionType.VIEW_NEWS,
+  payload:data
+})
+
 
  export const obtainmeteo=(cityName)=>
  {
@@ -39,4 +44,31 @@ export const setmeteodata=(data)=>({
              });
          };
      }
-    
+    export const obtainews=()=>
+    {
+      return async(dispatch)=>{
+        fetch(
+          'https://newsapi.org/v2/everything?q=weather&apiKey=ada075e87eda4647b0e5729d60880d90'
+        )
+        .then((res)=>{
+          if(res.ok)
+          {
+            return res.json();
+          }
+          else
+          {
+            throw new Error("errore");
+          }
+        })
+        .then((data)=>
+        {
+          dispatch(
+            setnews(data)
+          )
+        })
+        .catch((err)=>
+        {
+          console.log(err);
+        })
+      }
+    }

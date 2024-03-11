@@ -8,10 +8,10 @@ import WindCharts from "./WindChart";
 
 const Home2 = () => {
   const meteoFromRedux = useSelector((state) => {
-    return state.content[0];
+    return state.meteo.content[0];
   });
   const city = useSelector((state1) => {
-    return state1.content[0];
+    return state1.meteo.content[0];
   });
   if (meteoFromRedux) {
     let meteoWallpaper = "";
@@ -20,7 +20,9 @@ const Home2 = () => {
     if (meteoFromRedux.list[0].weather[0].main === "Clear") {
       meteoWallpaper = `assets/pexels-photomix-company-96622.jpg`;
       meteoIcon = `assets/SVG/sun.svg`;
-    } else if (meteoFromRedux.list[0].weather[0].description === "overcast clouds") {
+    } else if (
+      meteoFromRedux.list[0].weather[0].description === "overcast clouds"
+    ) {
       meteoWallpaper = `assets/black-rain-abstract-dark-power.jpg`;
       meteoIcon = `assets/SVG/cloud.svg`;
     } else if (meteoFromRedux.list[0].weather[0].main === "Rain") {
@@ -74,7 +76,7 @@ const Home2 = () => {
                   <Col className="d-flex justify-content-center">
                     <Card className="rounded-5 d-flex cardbackground cardsize ">
                       <div className="d-flex justify-content-center ">
-                        <span className="fs-3"> presso: </span>
+                        <span className="fs-3"> In: </span>
                         <span className="fs-5 mt-2"> {city.city.name}</span>
                       </div>
                       <div className="d-flex justify-content-between mt-4">
@@ -89,8 +91,10 @@ const Home2 = () => {
                           </span>
                         </div>
                         <div className="d-flex flex-column justify-content-center align-items-end">
-                          <span>temp: {meteoFromRedux.list[0].main.temp}</span>
-                          <span>um: {meteoFromRedux.list[0].main.humidity}</span>
+                          <span>temp: {meteoFromRedux.list[0].main.temp}°</span>
+                          <span>
+                            um: {meteoFromRedux.list[0].main.humidity}
+                          </span>
                         </div>
                       </div>
                     </Card>
@@ -98,7 +102,7 @@ const Home2 = () => {
                   <Col className="d-flex justify-content-center">
                     <Card className="rounded-5 cardbackground cardsize">
                       <div className="d-flex justify-content-start mb-2">
-                        <span className="fs-3">nelle prossime ore:</span>
+                        <span className="fs-3">next 3 hours:</span>
                       </div>
                       <div className="d-flex justify-content-between mb-2">
                         <img
@@ -110,7 +114,7 @@ const Home2 = () => {
                           {meteoFromRedux.list[1].weather[0].description}
                         </span>
                         <span className="my-2">
-                          {meteoFromRedux.list[1].main.temp}
+                          {meteoFromRedux.list[1].main.temp}°
                         </span>
                       </div>
                       <div className="d-flex justify-content-between mb-2">
@@ -123,7 +127,7 @@ const Home2 = () => {
                           {meteoFromRedux.list[2].weather[0].description}
                         </span>
                         <span className="my-2">
-                          {meteoFromRedux.list[2].main.temp}
+                          {meteoFromRedux.list[2].main.temp}°
                         </span>
                       </div>
                       <div className="d-flex justify-content-between mb-2">
@@ -136,7 +140,7 @@ const Home2 = () => {
                           {meteoFromRedux.list[3].weather[0].description}
                         </span>
                         <span className="my-2">
-                          {meteoFromRedux.list[3].main.temp}
+                          {meteoFromRedux.list[3].main.temp}°
                         </span>
                       </div>
                     </Card>
