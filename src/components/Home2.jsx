@@ -65,24 +65,24 @@ const Home2 = () => {
           height: "200%",
         }}
       >
-        <Container fluid>
+        <Container fluid className="text-light">
           <Row className="mt-2 ">
             <div className="d-flex justify-content-center ">
-              <h2>Condizioni meteo attuali</h2>
+              <h2>Actually the weather's like</h2>
             </div>
             <Col>
               <div className="d-flex justify-content-center align-items-center mt-2">
                 <Row>
                   <Col className="d-flex justify-content-center">
-                    <Card className="rounded-5 d-flex cardbackground cardsize ">
+                    <Card className="rounded-5 d-flex cardbackground cardsize text-light">
                       <div className="d-flex justify-content-center ">
-                        <span className="fs-3"> In: </span>
-                        <span className="fs-5 mt-2"> {city.city.name}</span>
+                        <span className="fs-3 "> {city.city.name}</span>
                       </div>
                       <div className="d-flex justify-content-between mt-4">
                         <div className="d-flex flex-column align-items-center">
                           <Card.Img
                             variant="top"
+                            className="cambia-colore"
                             style={{ width: "102px" }}
                             src={meteoIcon}
                           />
@@ -93,20 +93,21 @@ const Home2 = () => {
                         <div className="d-flex flex-column justify-content-center align-items-end">
                           <span>temp: {meteoFromRedux.list[0].main.temp}°</span>
                           <span>
-                            um: {meteoFromRedux.list[0].main.humidity}
+                            um: {meteoFromRedux.list[0].main.humidity}%
                           </span>
                         </div>
                       </div>
                     </Card>
                   </Col>
                   <Col className="d-flex justify-content-center">
-                    <Card className="rounded-5 cardbackground cardsize">
+                    <Card className="rounded-5 cardbackground cardsize text-light">
                       <div className="d-flex justify-content-start mb-2">
                         <span className="fs-3">next 3 hours:</span>
                       </div>
                       <div className="d-flex justify-content-between mb-2">
                         <img
                           src={meteoIconArray[0]}
+                          className="cambia-colore"
                           width={"45px"}
                           alt="meteo"
                         />
@@ -120,6 +121,7 @@ const Home2 = () => {
                       <div className="d-flex justify-content-between mb-2">
                         <img
                           src={meteoIconArray[1]}
+                          className="cambia-colore"
                           width={"45px"}
                           alt="meteo"
                         />
@@ -133,6 +135,7 @@ const Home2 = () => {
                       <div className="d-flex justify-content-between mb-2">
                         <img
                           src={meteoIconArray[2]}
+                          className="cambia-colore"
                           width={"45px"}
                           alt="meteo"
                         />
@@ -152,10 +155,10 @@ const Home2 = () => {
           <Row>
             <Col xs={12}>
               <div className="d-flex justify-content-center">
-                <Card className="mb-5 mt-3 rounded-5 cardbackground graphicsize">
-                  <h1 className="d-flex justify-content-center">
+                <Card className="mb-5 mt-3 rounded-5 cardbackground graphicsize text-light">
+                  <span className="d-flex justify-content-center fs-3">
                     Andamento del vento
-                  </h1>
+                  </span>
                   <WindCharts />
                 </Card>
               </div>

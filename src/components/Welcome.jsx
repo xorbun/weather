@@ -4,11 +4,12 @@ import SingleNews from "./Singlenews";
 
 const Welcome = () => {
   const news = useSelector((state) => {
-    return state.news.content[0].articles;
+    return state.news.content[0];
   });
+  if (news)
+{
   const numberOfArticles = "10";
-  const newsToWatch = news.slice(0, numberOfArticles);
-
+  const newsToWatch = news.articles.slice(0, numberOfArticles);
   return (
     <div className="colorsite">
       <Container fluid className=" vh-200">
@@ -19,10 +20,10 @@ const Welcome = () => {
               className="cardbackground rounded-5"
               style={{ width: "58rem" }}
             >
-              <Card.Img variant="top" src={news[11].urlToImage} />
+              <Card.Img variant="top" src={news.articles[11].urlToImage} />
               <Card.Body>
-                <Card.Title>{news[11].title}</Card.Title>
-                <Card.Text>{news[11].description}</Card.Text>
+                <Card.Title>{news.articles[11].title}</Card.Title>
+                <Card.Text>{news.articles[11].description}</Card.Text>
               </Card.Body>
             </Card>
           </Col>
@@ -43,5 +44,6 @@ const Welcome = () => {
       </Container>
     </div>
   );
+}
 };
 export default Welcome;

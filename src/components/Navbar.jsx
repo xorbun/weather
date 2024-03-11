@@ -44,6 +44,7 @@ const Navbarhome = () => {
               <Nav.Link className="mx-3 ">
                 <img
                   src={weathericon}
+                  
                   onClick={() => navigate("/cerca")}
                   alt="weathericon"
                 />
