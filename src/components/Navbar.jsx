@@ -11,6 +11,19 @@ const Navbarhome = () => {
   const [cityName, setcityName] = useState("");
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const actualmeteo = useSelector((state) => {
+    return state.content[0][0];
+  });
+  let weathericon = "";
+  if (actualmeteo.weather[0].main === "Clear") {
+    weathericon = `assets/SVG/sun.svg`;
+  } else if (actualmeteo.weather[0].main === "Rain") {
+    weathericon = `assets/SVG/rain.svg`;
+  } else if (actualmeteo.weather[0].main === "Snow") {
+    weathericon = `assets/SVG/snow.svg`;
+  } else if (actualmeteo.weather[0].main === "Clouds") {
+    weathericon = `assets/SVG/cloud.svg`;
+  }
   return (
     <Navbar expand="lg" className="navcolor">
       <Container fluid>
@@ -19,15 +32,24 @@ const Navbarhome = () => {
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="me-auto">
-            
-            
-          </Nav>
+          <Nav className="me-auto"></Nav>
+          <Nav.Link className="mx-3 ">
+            <img
+              src={weathericon}
+              onClick={() => navigate("/cerca")}
+              alt="weathericon"
+            />
+          </Nav.Link>
+          <Nav.Link onClick={() => navigate("/cerca")} className="mx-2">
+            {actualmeteo.main.temp}°
+          </Nav.Link>
         </Navbar.Collapse>
+
         <Form
           onSubmit={(e) => {
             e.preventDefault();
             dispatch(obtainmeteo(cityName));
+            setcityName("");
             navigate("/cerca");
           }}
         >
