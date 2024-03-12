@@ -7,12 +7,10 @@ const SingleNews = (props) => {
         <div>
           <Card.Img src={props.news.urlToImage} style={{ width: "200px" }} />
         </div>
-        <div>
+      <div>
           <Card.Body>
             <div>
-              <Card.Title className="truncatetitle">
-                {props.news.title}
-              </Card.Title>
+              <Card.Title>{props.news.title}</Card.Title>
               <Card.Text className="truncate">
                 {props.news.description}
               </Card.Text>
