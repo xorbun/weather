@@ -2,10 +2,12 @@ import { Container, Row, Col, Card, Button } from "react-bootstrap";
 import { useSelector } from "react-redux";
 import SingleNews from "./Singlenews";
 
+
 const Welcome = () => {
   const news = useSelector((state) => {
     return state.news.content[0];
   });
+ 
   if (news) {
     const numberOfArticles = "10";
     const newsToWatch = news.articles.slice(0, numberOfArticles);
@@ -20,7 +22,7 @@ const Welcome = () => {
                 <Card.Body>
                   <Card.Title>{news.articles[11].title}</Card.Title>
                   <Card.Text>{news.articles[11].description}</Card.Text>
-                  <Button>Read more</Button>
+                  <Button onClick={() => { window.location.href = news.articles[11].url }}>Read more</Button>
                 </Card.Body>
               </Card>
             </Col>
@@ -38,6 +40,7 @@ const Welcome = () => {
               );
             })}
           </Row>
+          
         </Container>
       </div>
     );

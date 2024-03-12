@@ -16,7 +16,7 @@ const SingleNews = (props) => {
               </Card.Text>
             </div>
             <div className="mt-5">
-              <Button>Read more</Button>
+            <Button onClick={() => { window.location.href = props.news.url }}>Read more</Button>
             </div>
           </Card.Body>
         </div>
