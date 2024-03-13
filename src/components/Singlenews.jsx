@@ -7,16 +7,20 @@ const SingleNews = (props) => {
         <div>
           <Card.Img src={props.news.urlToImage} style={{ width: "200px" }} />
         </div>
-      <div>
+        <div>
           <Card.Body>
             <div>
               <Card.Title>{props.news.title}</Card.Title>
-              <Card.Text className="truncate">
-                {props.news.description}
-              </Card.Text>
+              <Card.Text>{props.news.description}</Card.Text>
             </div>
             <div className="mt-5">
-            <Button onClick={() => { window.location.href = props.news.url }}>Read more</Button>
+              <Button
+                onClick={() => {
+                  window.location.href = props.news.url;
+                }}
+              >
+                Read more
+              </Button>
             </div>
           </Card.Body>
         </div>

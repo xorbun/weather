@@ -124,12 +124,7 @@ border: 1px solid rgba(255, 255, 255, 0.3)!important;
   overflow:hidden;
   text-overflow: ellipsis;
 }
-.truncatetitle{
-  width: 500px;
-  white-space: nowrap;
-  overflow:hidden;
-  text-overflow: ellipsis;
-}
+
 .newsettingintocard{
   display: flex;
 }
@@ -146,7 +141,7 @@ border: 1px solid rgba(255, 255, 255, 0.3)!important;
     flex-direction: column;
     align-items: center;
   }
- 
+
 }
 .cambia-colore {
   filter: brightness(100%) contrast(100%)invert(100%);
