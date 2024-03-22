@@ -20,7 +20,7 @@ const meteoAPI=process.env.REACT_APP_METEO;
      return async(dispatch)=>
      {
          fetch(
-             'https:api.openweathermap.org/data/2.5/forecast?q='+cityName+'&units=metric&appid=c8c98b5ab556be664cdfdbe9eba56b1b'
+             'https:api.openweathermap.org/data/2.5/forecast?q='+cityName+'&units=metric&appid='+meteoAPI
            )
              .then((res) => {
                if (res.ok) {
@@ -49,7 +49,7 @@ const meteoAPI=process.env.REACT_APP_METEO;
     {
       return async(dispatch)=>{
         fetch(
-          'https://newsapi.org/v2/everything?q=weather&apiKey=ada075e87eda4647b0e5729d60880d90'
+          'https://newsapi.org/v2/everything?q=weather&apiKey='+newsAPI
         )
         .then((res)=>{
           if(res.ok)
