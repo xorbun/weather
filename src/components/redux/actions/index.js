@@ -49,7 +49,7 @@ const meteoAPI=process.env.REACT_APP_METEO;
     {
       return async(dispatch)=>{
         fetch(
-          'https://newsapi.org/v2/everything?q=weather&apiKey=ada075e87eda4647b0e5729d60880d90'
+          'http://newsapi.org/v2/everything?q=weather&apiKey=ada075e87eda4647b0e5729d60880d90'
         )
         .then((res)=>{
           if(res.ok)
