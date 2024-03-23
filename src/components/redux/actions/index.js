@@ -45,31 +45,22 @@ const meteoAPI=process.env.REACT_APP_METEO;
              });
          };
      }
-    export const obtainews=()=>
+     export const obtainews=()=>async(dispatch)=>
     {
-      return async(dispatch)=>{
-        fetch(
-          'http://newsapi.org/v2/everything?q=weather&apiKey=ada075e87eda4647b0e5729d60880d90'
-        )
-        .then((res)=>{
-          if(res.ok)
-          {
-            return res.json();
-          }
-          else
-          {
-            throw new Error("errore");
-          }
-        })
-        .then((data)=>
-        {
-          dispatch(
-            setnews(data)
-          )
-        })
-        .catch((err)=>
-        {
-          console.log(err);
-        })
-      }
-    }
+      const url = 'https://news-api14.p.rapidapi.com/top-headlines?country=it&language=en&pageSize=12';
+      const options = {
+        method: 'GET',
+        headers: {
+          'X-RapidAPI-Key': '3aa4910d56msh9dd269d35cce39cp12f60bjsn43ac8bc4dd47',
+          'X-RapidAPI-Host': 'news-api14.p.rapidapi.com'
+        }
+      };
+
+try {
+	const response = await fetch(url, options);
+	const result = await response.json();
+	dispatch(setnews(result))
+} catch (error) {
+	console.error(error);
+}
+  }

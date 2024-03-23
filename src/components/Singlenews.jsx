@@ -4,9 +4,7 @@ const SingleNews = (props) => {
   return (
     <Card className="cardbackground rounded-5" style={{ width: "58rem" }}>
       <div className="newsettingintocard">
-        <div>
-          <Card.Img src={props.news.urlToImage} style={{ width: "200px" }} />
-        </div>
+        
         <div>
           <Card.Body>
             <div>
